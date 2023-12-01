@@ -1,0 +1,15 @@
+.page-auth {
+  .row-auth {
+    min-height: 70vh;
+
+    h2 {
+      font-weight: normal;
+      font-size: 28px;
+      color: $hitam;
+    }
+
+    .form-control {
+      border-radius: 8px;
+    }
+  }
+}

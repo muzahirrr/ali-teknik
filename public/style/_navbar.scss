@@ -1,0 +1,53 @@
+.navbar {
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  @include media-breakpoint-down(md) {
+    background-color: $first-color;
+  }
+
+  &.active {
+    background-color: $first-color;
+    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.07);
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  .navbar-brand {
+    font-weight: 800;
+    font-size: 26px;
+    color: $second-color !important;
+  }
+
+  .navbar-nav {
+    .nav-item {
+      .nav-link {
+        margin-right: 10px;
+        color: $second-color !important;
+        font-weight: 300;
+
+        &.active {
+          font-weight: bold;
+          color: $second-color !important;
+        }
+      }
+    }
+  }
+
+  .btn-daftar {
+    color: $second-color !important;
+    font-weight: 300;
+    text-decoration: none;
+  }
+
+  .profile-picture {
+    max-height: 45px;
+  }
+}
+
+.bg-navbar {
+  background-color: $first-color;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.07);
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
