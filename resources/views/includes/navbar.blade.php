@@ -62,7 +62,7 @@
               Hi, {{ Auth::user()->name }}
             </a>
             <div class="dropdown-menu">
-              <a href="{{ route('dashboard') }}" class="dropdown-item">Dashboard</a>
+              <a href="{{ Auth::user()->roles === 'ADMIN' ? route('dashboard') : route('dashboard') }}" class="dropdown-item">Dashboard</a>
               <div class="dropdown-divider"></div>
               <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="dropdown-item">Logout</a>
               <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

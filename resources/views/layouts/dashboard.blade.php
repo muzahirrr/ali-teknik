@@ -33,7 +33,7 @@
         <ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center py-5" href="{{ route('dashboard') }}">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center py-5" href="{{ auth()->user()->roles == 'USER' ? route('user.dashboard') : route('dashboard') }}">
                 <div class="sidebar-brand-icon">
                     <i class="fas fa-user-cog"></i>
                 </div>
@@ -45,17 +45,17 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="{{ route('dashboard') }}">
+                <a class="nav-link" href="{{ auth()->user()->roles == 'USER' ? route('user.dashboard') : route('dashboard') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('dashboard-transaction') }}">
+                <a class="nav-link" href="{{ auth()->user()->roles == 'USER' ? route('user.dashboard-transaction') : route('dashboard-transaction') }}">
                     <i class="fas fa-file-signature"></i>
                     <span>Transaksi</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('dashboard-setting') }}">
+                <a class="nav-link" href="{{ auth()->user()->roles == 'USER' ? route('user.dashboard-setting') : route('dashboard-setting') }}">
                     <i class="fas fa-house-user"></i>
                     <span>Akun</span></a>
             </li>

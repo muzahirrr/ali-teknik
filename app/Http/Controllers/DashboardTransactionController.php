@@ -9,7 +9,15 @@ class DashboardTransactionController extends Controller
 {
   public function index()
   {
-      $transactions = Transaction::with(['user', 'service'])->get();
+      $user = auth()->user();
+      if ($user->roles == 'USER'){
+        $transactions = Transaction::with(['user', 'service'])
+        ->where('user_id', $user->id)
+        ->get();
+      } else {
+        $transactions = Transaction::with(['user', 'service'])->get();
+      }
+
         return view('pages.dashboard-transaksi', [
             'transactions' => $transactions
         ]);
@@ -26,6 +34,7 @@ class DashboardTransactionController extends Controller
             'transaction_status' => $transaction_status
         ]);
 
-        return redirect()->route('dashboard-transaction');
+        $role = auth()->user()->roles;
+        return redirect()->route($role ? 'user.dashboard-transaction' : 'dashboard-transaction');
     }
 }

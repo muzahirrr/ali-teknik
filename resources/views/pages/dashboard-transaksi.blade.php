@@ -36,7 +36,7 @@
                                 <td>{{ $transaction->code }}</td>
                                 <td>{{ $transaction->user->name }}</td>
                                 <td>{{ $transaction->brand }}</td>
-                                <td>$transaction->order_date</td>
+                                <td>{{ $transaction->order_date }}</td>
                                 <td class="total-price">{{ $transaction->total_price }}</td>
                                 <td>{{ $transaction->payment_status }}</td>
                                 <td>{{ $transaction->transaction_status }}</td>
@@ -147,7 +147,7 @@
        $('.showDetail').on('click', function () {
             const id = $(this).data('id');
             // update action
-            $('form').attr('action', `{{ url('/dashboard/transactions') }}/${id}`);
+            $('form').attr('action', `{{ url(Auth::user()->roles === 'ADMIN' ? '/admin/dashboard/transactions' : '/user/dashboard/transactions') }}/${id}`);
             $.ajax(`{{ url('/api/transaction') }}/${id}`, {
                 success: function (transaction) {
                     console.log(transaction);

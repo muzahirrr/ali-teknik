@@ -32,17 +32,22 @@ Route::middleware('auth')->group(function () {
     Route::post( '/order/{service:slug}', [OrderController::class, 'store'])->name('order');
 });
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-Route::get('/dashboard/transactions', [DashboardTransactionController::class, 'index'])->name('dashboard-transaction');
-Route::get('/dashboard/settings', [DashboardSettingController::class, 'index'])->name('dashboard-setting');
-Route::put('/dashboard/transactions/{id}', [DashboardTransactionController::class, 'update'])->name('dashboard-update');
 
-Route::prefix('admin')
-  ->group(function () {
-    Route::get('/', [AdminDashboardController::class, 'index'])->name('admin-dashboard');
+Route::group(['prefix' => 'user/dashboard', 'middleware' => ['auth', 'user']], function() {
+    Route::get('/', [DashboardController::class, 'index'])->name('user.dashboard');
+    Route::get('/transactions', [DashboardTransactionController::class, 'index'])->name('user.dashboard-transaction');
+    Route::get('/settings', [DashboardSettingController::class, 'index'])->name('user.dashboard-setting');
+    Route::put('/transactions/{id}', [DashboardTransactionController::class, 'update'])->name('user.dashboard-update');
+});
+
+Route::group(['prefix' => 'admin/dashboard', 'middleware' => ['auth', 'admin']], function () {
+    Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard');
+    Route::get('/transactions', [DashboardTransactionController::class, 'index'])->name('dashboard-transaction');
+    Route::put('/transactions/{id}', [DashboardTransactionController::class, 'update'])->name('dashboard-update');
+    Route::get('/settings', [DashboardSettingController::class, 'index'])->name('dashboard-setting');
     Route::resource('service', ServiceController::class);
     Route::resource('service_gallery', ServiceGalleryController::class);
     Route::resource('user', UserController::class);
-  });
+});
 
 Auth::routes();

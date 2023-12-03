@@ -9,7 +9,8 @@ class DashboardController extends Controller
 {
   public function index()
   {
-      $transaction = Transaction::get();
+      $user_id = auth()->user()->id;
+      $transaction = Transaction::where('user_id', $user_id)->get();
       $transaction_count = $transaction->count();
         $transaction_pending = $transaction->where('transaction_status', 'PENDING')->count();
         $transaction_success = $transaction->where('transaction_status', 'SUCCESS')->count();
