@@ -26,7 +26,11 @@ use App\Http\Controllers\Admin\UserController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/detail/{service:slug}', [DetailController::class, 'index'])->name('detail');
-Route::get('/order/{service:slug}', [OrderController::class, 'index'])->name('order');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/order/{service:slug}', [OrderController::class, 'index'])->name('order');
+    Route::post( '/order/{service:slug}', [OrderController::class, 'store'])->name('order');
+});
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/dashboard/transactions', [DashboardTransactionController::class, 'index'])->name('dashboard-transaction');
