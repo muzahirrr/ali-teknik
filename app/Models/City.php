@@ -9,21 +9,21 @@
 
 namespace App\Models;
 
-use AzisHapidin\IndoRegion\Traits\VillageTrait;
+use AzisHapidin\IndoRegion\Traits\ProvinceTrait;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\District;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Village Model.
+ * Province Model.
  */
-class SubDistrict extends Model
+class City extends Model
 {
-    use VillageTrait;
-
+    use ProvinceTrait;
+    use SoftDeletes;
     /**
      * Table name.
      *
      * @var string
      */
-    protected $table = 'ec_subdistricts';
+    protected $table = 'ec_cities';
 }

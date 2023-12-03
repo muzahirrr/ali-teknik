@@ -35,6 +35,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/dashboard/transactions', [DashboardTransactionController::class, 'index'])->name('dashboard-transaction');
 Route::get('/dashboard/settings', [DashboardSettingController::class, 'index'])->name('dashboard-setting');
+Route::put('/dashboard/transactions/{id}', [DashboardTransactionController::class, 'update'])->name('dashboard-update');
 
 Route::prefix('admin')
   ->group(function () {

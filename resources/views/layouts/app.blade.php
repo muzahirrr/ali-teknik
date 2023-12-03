@@ -11,6 +11,7 @@
 
     <title>@yield('title')</title>
 
+
     {{-- STYLE --}}
     @stack('prepend-style')
     @include('includes.style')
@@ -19,6 +20,12 @@
   </head>
 
   <body>
+  <script
+      defer
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"></script>
+    <script src="{{ url('js/currencyFormatter.js') }}"></script>
     {{-- NAVBAR --}}
     @include('includes.navbar')
 
