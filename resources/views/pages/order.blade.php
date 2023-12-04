@@ -40,7 +40,8 @@
                                     <div class="row">
                                         <div class="form-group col-md-6">
                                             <label for="brand">Merk dan Tipe AC</label>
-                                            <input type="text" class="form-control" id="brand" name="brand" />
+                                            <input type="text" class="form-control" id="brand" name="brand"
+                                                required />
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="">Layanan</label>
@@ -55,32 +56,37 @@
                                             @if ($service->name === 'Pasang')
                                                 <div class="custom-control custom-radio mb-2">
                                                     <input type="radio" id="pasang" name="service"
-                                                        class="custom-control-input" data-price="0" value="{{ json_encode(['label' => 'pasang', 'price' => 0])  }}" />
+                                                        class="custom-control-input" data-price="0"
+                                                        value="{{ json_encode(['label' => 'pasang', 'price' => 0]) }}" />
                                                     <label class="custom-control-label font-weight-light"
                                                         for="pasang">Pasang Air Conditioner</label>
                                                 </div>
                                                 <div class="custom-control custom-radio mb-2">
                                                     <input type="radio" id="bongkar" name="service"
-                                                        class="custom-control-input" data-price="100000" value="{{ json_encode(['label' => 'bongkar', 'price' => 100000]) }}"/>
+                                                        class="custom-control-input" data-price="100000"
+                                                        value="{{ json_encode(['label' => 'bongkar', 'price' => 100000]) }}" />
                                                     <label class="custom-control-label font-weight-light"
                                                         for="bongkar">Bongkar Air Conditioner (+100.000)</label>
                                                 </div>
                                                 <div class="custom-control custom-radio mb-2">
                                                     <input type="radio" id="bongkar_pasang" name="service"
-                                                        class="custom-control-input" data-price="200000" value="{{ json_encode(['label' => 'bongkar_pasang', 'price' => 200000])  }}" />
+                                                        class="custom-control-input" data-price="200000"
+                                                        value="{{ json_encode(['label' => 'bongkar_pasang', 'price' => 200000]) }}" />
                                                     <label class="custom-control-label font-weight-light"
                                                         for="bongkar_pasang">Bongkar Pasang Air Conditioner
                                                         (+200.000)</label>
                                                 </div>
                                                 <div class="custom-control custom-radio">
                                                     <input type="radio" id="relokasi" name="service"
-                                                        class="custom-control-input" data-price="300000" value="{{ json_encode(['label' => 'relokasi', 'price' => 300000])  }}" />
+                                                        class="custom-control-input" data-price="300000"
+                                                        value="{{ json_encode(['label' => 'relokasi', 'price' => 300000]) }}" />
                                                     <label class="custom-control-label font-weight-light"
                                                         for="relokasi">Relokasi Air Conditioner (+300.000)</label>
                                                 </div>
                                             @else
                                                 <div class="custom-control custom-radio">
-                                                    <input type="radio" id="air-conditioner" name="service" data-price="0" value="{{ json_encode(['label' => $service->name, 'price' => 0]) }}"
+                                                    <input type="radio" id="air-conditioner" name="service" data-price="0"
+                                                        value="{{ json_encode(['label' => $service->name, 'price' => 0]) }}"
                                                         class="custom-control-input" checked />
                                                     <label class="custom-control-label font-weight-light"
                                                         for="air-conditioner">{{ $service->name }} Air Conditioner</label>
@@ -89,15 +95,17 @@
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label for="detail">Detail Informasi</label>
-                                            <textarea name="detail" id="detail" rows="3" class="form-control"></textarea>
+                                            <textarea name="detail" id="detail" rows="3" class="form-control" required></textarea>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="amount">Jumlah Unit</label>
-                                            <input type="number" class="form-control" name="amount" id="amount" />
+                                            <input type="number" class="form-control" name="amount" id="amount"
+                                                required />
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="order_date">Tanggal</label>
-                                            <input type="date" class="form-control" id="order_date" name="order_date" />
+                                            <input type="date" class="form-control" id="order_date" name="order_date"
+                                                required />
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="nama">Nama</label>
@@ -110,32 +118,42 @@
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="province_id">Provinsi</label>
-                                            <select name="province_id" id="province_id" class="form-control" onchange="findLocation(this, 'cities', 'city_id')">
+                                            <select name="province_id" id="province_id" class="form-control"
+                                                onchange="findLocation(this, 'cities', 'city_id')">
                                                 <option value="">Pilih Provinsi</option>
-                                                @foreach($provinces as $province)
+                                                @foreach ($provinces as $province)
                                                     <option value="{{ $province->id }}">{{ $province->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="city_id">Kota</label>
-                                            <select name="city_id" id="city_id" class="form-control" onchange="findLocation(this, 'districts', 'district_id')"></select>
+                                            <select name="city_id" id="city_id" class="form-control"
+                                                onchange="findLocation(this, 'districts', 'district_id')">
+                                                <option value="">Pilih Kota</option>
+                                            </select>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="district_id">Kecamatan</label>
-                                            <select name="district_id" id="district_id" class="form-control" onchange="findLocation(this, 'subdistricts', 'subdistrict_id')"></select>
+                                            <select name="district_id" id="district_id" class="form-control"
+                                                onchange="findLocation(this, 'subdistricts', 'subdistrict_id')">
+                                                <option value="">Pilih Kecamatan</option>
+                                            </select>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="subdistrict_id">Kelurahan</label>
-                                            <select name="subdistrict_id" id="subdistrict_id" class="form-control"></select>
+                                            <select name="subdistrict_id" id="subdistrict_id" class="form-control">
+                                                <option value="">Pilih Kelurahan</option>
+                                            </select>
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label for="address">Alamat Lengkap</label>
-                                            <textarea name="address" id="address" rows="3" class="form-control"></textarea>
+                                            <textarea name="address" id="address" rows="3" class="form-control" required></textarea>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="phone_number">No HP</label>
-                                            <input type="number" class="form-control" id="phone_number" name="phone_number" />
+                                            <input type="number" class="form-control" id="phone_number"
+                                                name="phone_number" required />
                                         </div>
                                     </div>
                                 </div>
@@ -169,26 +187,8 @@
         const ordeTotal = $('.order-total');
         const orderService = $('.order-service');
         ordeTotal.html(`${currencyFormatter({{ $harga }})}`);
-        // $('input[name="option"]').on("click", function() {
-        //     var pasang = $('input[id="pasang"]:checked');
-        //     var bongkar = $('input[id="bongkar"]:checked');
-        //     var bongkarpasang = $('input[id="bongkarpasang"]:checked');
-        //     var hasilharga;
-        //
-        //     if (pasang) {
-        //         hasilharga = $service - > price
-        //     } else if (bongkar) {
-        //         hasilharga = $service - > price + 200
-        //     }
-        //
-        //     console.log(hasilharga);
-        // });
 
-        // $('#provinsi').change(function() {
-        //     const provinsi_id = $(this).val();
-        // });
         function findLocation(e, type, selectId) {
-            console.log(e.value);
             const id = e.value;
             const url = '{{ url('/api/location') }}' + '/' + type + '/' + id;
             $.ajax({
@@ -198,6 +198,7 @@
                     // remove all options from select box
                     const target = $('#' + selectId);
                     target.html('');
+
                     for (const item of items) {
                         target.append(
                             `<option value="${item.id}">${item.name}</option>`
@@ -208,7 +209,7 @@
         }
 
 
-       $('input[name="service"]').on('change', function() {
+        $('input[name="service"]').on('change', function() {
             const price = JSON.parse($(this).val()).price;
             const amount = $('[name="amount"]').val() || 1;
 
@@ -225,6 +226,5 @@
             orderService.html(`${currencyFormatter(price)}`);
             ordeTotal.html(`${currencyFormatter(total)}`);
         });
-
     </script>
 @endpush
