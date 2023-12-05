@@ -47,11 +47,6 @@
                                             <label for="">Layanan</label>
                                             @php
                                                 $harga = $service->price;
-                                                $tambahan = 0;
-                                                $satu = 100000;
-                                                $dua = 200000;
-                                                $tiga = 300000;
-                                                $jumlahharga = 0;
                                             @endphp
                                             @if ($service->name === 'Pasang')
                                                 <div class="custom-control custom-radio mb-2">
@@ -100,7 +95,7 @@
                                         <div class="form-group col-md-6">
                                             <label for="amount">Jumlah Unit</label>
                                             <input type="number" class="form-control" name="amount" id="amount"
-                                                required />
+                                                required min="1" />
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="order_date">Tanggal</label>
@@ -164,7 +159,7 @@
                                             <div class="order-subtitle">Harga Jasa</div>
                                         </div>
                                         <div class="col-md-3 pl-5 pt-4 pt-md-0">
-                                            <div class="order-total"></div>
+                                            <div class="order-total">Rp 0</div>
                                             <div class="order-subtitle">Total Pembayaran</div>
                                         </div>
                                         <div class="col-md-5 pt-4 pt-md-0 text-md-right text-center">
@@ -187,6 +182,7 @@
         const ordeTotal = $('.order-total');
         const orderService = $('.order-service');
         ordeTotal.html(`${currencyFormatter({{ $harga }})}`);
+        orderService.html(`${currencyFormatter({{ $harga }})}`);
 
         function findLocation(e, type, selectId) {
             const id = e.value;
@@ -212,19 +208,17 @@
         $('input[name="service"]').on('change', function() {
             const price = JSON.parse($(this).val()).price;
             const amount = $('[name="amount"]').val() || 1;
+            const total = {{ $harga }} + price
 
-            const total = price + ({{ $harga }} * amount);
-
-            orderService.html(`${currencyFormatter(price)}`);
-            ordeTotal.html(`${currencyFormatter(total)}`);
+            orderService.html(`${currencyFormatter(total)}`);
+            ordeTotal.html(`${currencyFormatter(total * amount)}`);
         });
 
         $('[name="amount"]').on('keyup', function() {
             const amount = $(this).val() || 1;
             const price = JSON.parse($('[name="service"]:checked').val()).price;
-            const total = price + {{ $harga }} * amount;
-            orderService.html(`${currencyFormatter(price)}`);
-            ordeTotal.html(`${currencyFormatter(total)}`);
+            const total = {{ $harga }} + price
+            ordeTotal.html(`${currencyFormatter(total * amount)}`);
         });
     </script>
 @endpush

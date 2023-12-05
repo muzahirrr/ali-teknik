@@ -46,8 +46,10 @@ class OrderController extends Controller
           'address',
       ]);
       $data['service'] = json_decode($data['service']);
-      $price = $data['service']->price;
-      $total_price = $price + ( $service->price * $data['amount'] );
+      $earlyPrice = $service->price;
+      $price = $earlyPrice + $data['service']->price;
+      $total_price = $price * $data['amount'];
+
       Transaction::create([
         'brand' => $data['brand'],
         'service_id' => $service->id,
