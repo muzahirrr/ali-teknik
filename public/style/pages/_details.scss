@@ -1,0 +1,57 @@
+.details {
+  .layanan-gallery {
+    margin-top: 20px;
+
+    img {
+      border-radius: 10px;
+    }
+
+    .thumbnail-image {
+      margin-bottom: 20px;
+      border: 2px solid transparent;
+
+      &:hover,
+      &.active {
+        border: 2px solid $first-color;
+      }
+    }
+  }
+
+  .layanan-details {
+    margin-top: 50px;
+
+    .heading-details-layanan {
+      margin-bottom: 30px;
+      font-weight: 700;
+      font-size: 31px;
+      color: $hitam;
+    }
+
+    p {
+      font-weight: 300;
+      font-size: 17px;
+      color: $hitam;
+    }
+
+    .card {
+      border: 1px solid $first-color;
+
+      .card-header {
+        background-color: $first-color;
+
+        h4 {
+          font-weight: 500;
+          font-size: 20px;
+          color: $second-color;
+        }
+      }
+
+      .card-body {
+        .pricing-card-title {
+          font-weight: 700;
+          font-size: 50px;
+        }
+      }
+    }
+  }
+}

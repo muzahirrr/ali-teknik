@@ -1,0 +1,31 @@
+.order {
+  .form-order {
+    .card {
+      border: 1px solid $first-color;
+      border-radius: 8px;
+
+      h3 {
+        font-weight: 500;
+        color: $second-color;
+      }
+
+      .card-header {
+        background-color: $first-color;
+      }
+
+      .card-footer {
+        .order-title {
+          font-weight: normal;
+          font-size: 18px;
+          color: #135c84;
+        }
+
+        .order-subtitle {
+          font-weight: normal;
+          font-size: 14px;
+          color: #979797;
+        }
+      }
+    }
+  }
+}

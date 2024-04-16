@@ -1,0 +1,142 @@
+.home {
+  background: linear-gradient(145deg, #2b9ead 0%, #135c84 100%);
+  padding-top: 150px;
+  padding-bottom: 100px;
+  min-height: 100%;
+
+  .heading-home {
+    font-size: 49px;
+    font-weight: 700;
+    color: $second-color;
+
+    // @include media-breakpoint-between(md, lg) {
+    //   font-size: 39px;
+    // }
+
+    // @include media-breakpoint-down(sm) {
+    //   font-size: 35px;
+    // }
+  }
+
+  .subheading-home {
+    font-size: 16px;
+    color: $second-color;
+    font-weight: 300;
+
+    // @include media-breakpoint-down(md) {
+    //   font-size: 12px;
+    // }
+  }
+
+  .btn-home {
+    margin-top: 125px;
+
+    @include media-breakpoint-down(md) {
+      margin-top: 50px;
+    }
+  }
+
+  // .img-home {
+  //   @include media-breakpoint-between(md, lg) {
+  //     max-width: 400px;
+  //     max-height: 359px;
+  //   }
+  // }
+}
+
+.tentang {
+  .heading-tentang {
+    font-weight: 500;
+    font-size: 31px;
+    color: $hitam;
+  }
+
+  .subheading-tentang {
+    font-weight: 500;
+    font-size: 20px;
+    color: $first-color;
+  }
+
+  .isi-tentang {
+    font-weight: 300;
+    font-size: 17px;
+    color: $hitam;
+  }
+}
+
+.layanan {
+  background-color: $first-color;
+  border-radius: 11px;
+
+  .heading-layanan {
+    font-weight: 500;
+    font-size: 31px;
+    color: $second-color;
+  }
+
+  .subheading-layanan {
+    font-weight: 300;
+    font-size: 20px;
+    color: $second-color;
+  }
+
+  .card-layanan {
+    border: none;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    height: 100%;
+
+    .card-text {
+      font-weight: 300;
+      font-size: 16px;
+      color: $hitam;
+    }
+  }
+}
+
+.kontak {
+  .heading-kontak {
+    font-weight: 500;
+    font-size: 31px;
+    color: $hitam;
+  }
+
+  .subheading-kontak {
+    font-weight: 500;
+    font-size: 20px;
+    color: $first-color;
+  }
+
+  .info-kontak {
+    font-weight: 300;
+    font-size: 17px;
+    color: $hitam;
+  }
+}
+
+.footer {
+  background-color: $first-color;
+  // height: 250px;
+  // padding-top: 50px;
+  // padding-bottom: 15px;
+  padding: 60px 0px 40px;
+  border-radius: 11px 11px 0px 0px;
+
+  .footer-brand {
+    font-weight: 800;
+    font-size: 26px;
+    color: $second-color;
+  }
+
+  .heading-footer {
+    font-weight: 500;
+    font-size: 21px;
+  }
+
+  .nav-item {
+    .nav-link {
+      font-weight: 300;
+      font-size: 16px;
+    }
+  }
+}

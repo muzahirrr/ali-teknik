@@ -1,0 +1,21 @@
+@import "fonts";
+@import "colors";
+@import "button";
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.section-margin {
+  margin-top: 100px;
+}
+
+.label-section {
+  font-weight: 500;
+  font-size: 25px;
+  color: $hitam;
+}
+
+.form-control {
+  background-color: #f3f3f3;
+}
