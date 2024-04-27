@@ -44,6 +44,7 @@
                   <th>No.</th>
                   <th>Kode</th>
                   <th>Nama</th>
+                  <th>Layanan</th>
                   <th>Merk dan Tipe</th>
                   <th>Tanggal Booking</th>
                   <th>Tanggal Transaksi</th>
@@ -73,6 +74,7 @@
                 {data: 'DT_RowIndex', name:'DT_RowIndex', orderable: false, searchable: false},
                 {data: 'code', name:'code'},
                 {data: 'name', name:'name'},
+                {data: 'option', name:'option'},
                 {data: 'brand', name:'brand'},
                 {data: 'order_date', name:'order_date'},
                 {data: 'created_at', name:'created_at'},

@@ -23,6 +23,7 @@
                             <th>No.</th>
                             <th>Kode</th>
                             <th>Nama</th>
+                            <th>Layanan</th>
                             <th>Merk dan Tipe</th>
                             <th>Tanggal Booking</th>
                             <th>Tanggal Transaksi</th>
@@ -38,6 +39,7 @@
                           <td>{{ $loop->iteration }}</td>
                           <td>{{ $transaction->code }}</td>
                           <td>{{ $transaction->name }}</td>
+                          <td>{{ $transaction->option }}</td>
                           <td>{{ $transaction->brand }}</td>
                           <td>{{ date('d-m-Y', strtotime($transaction->order_date)) }}</td>
                           <td>{{ date('d-m-Y', strtotime($transaction->created_at)) }}</td>
